@@ -1,0 +1,46 @@
+<%- include('../partials/header', { title: 'Edit Supplier' }) %>
+
+<div class="container mt-4">
+  <h1 class="h3 mb-3">Edit Supplier</h1>
+
+  <form
+    action="/suppliers/<%= supplier._id %>?_method=PUT"
+    method="POST"
+    class="card p-4 shadow-sm"
+  >
+    <div class="mb-3">
+      <label class="form-label">Supplier Name</label>
+      <input
+        type="text"
+        name="name"
+        value="<%= supplier.name %>"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Contact</label>
+      <input
+        type="text"
+        name="contact"
+        value="<%= supplier.contact %>"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        value="<%= supplier.email %>"
+        class="form-control"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="/suppliers" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

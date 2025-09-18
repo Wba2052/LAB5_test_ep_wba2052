@@ -1,0 +1,57 @@
+<%- include('../partials/header', { title: 'Add Product' }) %>
+
+<div
+  class="d-flex justify-content-center align-items-start min-vh-100 bg-light"
+>
+  <div
+    class="container mt-5 bg-white p-4 rounded shadow"
+    style="max-width: 600px"
+  >
+    <h1 class="h4 mb-4">Add New Product</h1>
+
+    <form action="/products" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input type="text" class="form-control" name="name" required />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          name="price"
+          required
+          min="0"
+          step="0.01"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          name="quantity"
+          required
+          min="0"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Supplier</label>
+        <select class="form-select" name="supplier" required>
+          <option value="">-- Select Supplier --</option>
+          <% suppliers.forEach(s => { %>
+          <option value="<%= s._id %>"><%= s.name %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/products" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

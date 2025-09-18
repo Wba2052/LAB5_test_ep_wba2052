@@ -1,0 +1,65 @@
+<%- include('../partials/header') %>
+
+<h1 class="mb-4">Edit Product</h1>
+
+<form
+  action="/products/<%= product._id %>?_method=PUT"
+  method="POST"
+  class="card p-4 shadow-sm"
+>
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input
+      type="text"
+      name="name"
+      value="<%= product.name %>"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="row">
+    <div class="mb-3 col-md-4">
+      <label class="form-label">Card</label>
+      <input
+        type="number"
+        name="card"
+        value="<%= product.card %>"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3 col-md-4">
+      <label class="form-label">Pack</label>
+      <input
+        type="number"
+        name="pack"
+        value="<%= product.pack %>"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3 col-md-4">
+      <label class="form-label">Per Day</label>
+      <input
+        type="number"
+        name="perDay"
+        value="<%= product.perDay %>"
+        class="form-control"
+        required
+      />
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Dosage</label>
+    <input
+      type="text"
+      name="dosage"
+      value="<%= product.dosage %>"
+      class="form-control"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">💾 Update</button>
+  <a href="/products" class="btn btn-secondary ms-2">⬅ Back</a>
+</form>
+
+<%- include('../partials/footer') %>
